@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Library</h1>
+        <input id="search" type="text" placeholder="Search...">
+        <section>
+            <button id="showAllBooks">Show All Books</button>
+            <button id="showAvailableBooks">Show Available Books</button>
+            <button id="showBorrowedBooks">Show Borrowed Books</button>
+        </section>
+    </header>
+    <main>
+        <h2 class="title">Books</h2>
+        <section id="library">
+
+        </section>
+        <h2 class="title">Users</h2>
+        <section id="users">
+
+        </section>
+        <section id="cards">
+            <section class="card">
+                <h2>Add Book To Library</h2>
+                <form>
+                    <input id="id" type="text" placeholder="Id" required>
+                    <input id="title" type="text" placeholder="Title" required>
+                    <input id="author" type="text" placeholder="Author" required>
+                    <button id="addBookBtn">Add Book</button>
+                </form>
+            </section>
+            <section class="card">
+                <h2>Delete Book</h2>
+                <form>
+                    <input id="deleteBookInput" type="text" placeholder="Title" required>
+                    <button id="deleteBookBtn">Delete Book</button>
+                </form>
+            </section>
+            <section class="card">
+                <h2>Add User</h2>
+                <form>
+                    <input id="identityNumber" type="text" placeholder="Id" required>
+                    <input id="userName" type="text" placeholder="Name" required>
+                    <input id="userBooks" type="text" placeholder="Book" required>
+                    <button id="addUserBtn">Add User</button>
+                </form>
+            </section>
+            <section class="card">
+                <h2>Borrow Book</h2>
+                <form>
+                    <input id="idBorrow" type="text" placeholder="Id" required>
+                    <input id="nameBorrow" type="text" placeholder="Name" required>
+                    <input id="bookBorrow" type="text" placeholder="Book" required>
+                    <button id="borrowBookBtn">Borrow Book</button>
+                </form>
+            </section>
+            <section class="card">
+                <h2>Return Book</h2>
+                <form>
+                    <input id="idReturn" type="text" placeholder="Id" required>
+                    <input id="nameReturn" type="text" placeholder="Name" required>
+                    <input id="bookReturn" type="text" placeholder="Book" required>
+                    <button id="returnBookBtn">Return Book</button>
+                </form>
+            </section>
+            <section class="card">
+                <h2>Delete User</h2>
+                <form>
+                    <input id="idDelete" type="text" placeholder="Id" required>
+                    <input id="nameDelete" type="text" placeholder="Name" required>
+                    <button id="deleteUserBtn">Delete User</button>
+                </form>
+            </section>
+        </section>
+    </main>
+</body>
+</html>
