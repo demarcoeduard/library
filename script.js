@@ -173,9 +173,9 @@ deleteBookBtn.addEventListener('click', () => {
 
 // BORROW BOOK
 
-const borrow = (books) => {
+const borrow = (book) => {
     for (let i = 0; i < library.length; i++) {
-        if (books.includes(library[i].title)) {
+        if (book.includes(library[i].title)) {
             library[i].disponibility = false;
         }
     }
@@ -187,6 +187,7 @@ const borrowNewBook = (id, name, book) => {
             users[i].books.push(book);
             borrow(book);
             displayUsers();
+            displayBooks();
         }
     }  
 }
@@ -206,7 +207,7 @@ borrowBookBtn.addEventListener('click', (event) => {
 
 const makeBookAvailable = (book) => {
     for (let i = 0; i < library.length; i++) {
-        if (book.includes(library[i].title.toLowerCase())) {
+        if (book.includes(library[i].title)) {
             library[i].disponibility = true;
         }
     }
@@ -216,8 +217,9 @@ const returnBook = (id, name, book) => {
     for (let i = 0; i< users.length; i++) {
         if (users[i].id == id && users[i].name == name) {
             users[i].books.splice(i, 1);
-            displayUsers();
             makeBookAvailable(book);
+            displayUsers();
+            displayBooks()
         }
     }
 }
@@ -226,23 +228,27 @@ returnBookBtn.addEventListener('click', (event) => {
     event.preventDefault();
     let id = idReturn.value;
     let name = nameReturn.value;
-    let book = bookReturn.value.toLowerCase();
+    let book = bookReturn.value;
     returnBook(id, name, book);
+    idReturn.value = '';
+    nameReturn.value = '';
+    bookReturn.value = '';
 })
 
 // ADD USERS
 
 const users = [];
 
-const addUser = (id, name, books) => {
+const addUser = (id, name, book) => {
     if(!users[id]) {
         users[id] = {
             id,
             name,
-            books
+            book
         };
     }
-    borrow(books);
+    borrow(book);
+    displayBooks();
 }
 
 addUser(0, 'Edward', ['Papilon', 'Deep Work']);
@@ -255,7 +261,7 @@ addUserBtn.addEventListener('click', (event) => {
     event.preventDefault();
     let id = identityNumber.value;
     let name = userName.value;
-    let books = userBooks.value.split(',');
+    let books = userBooks.value;
     addUser(id, name, books);
     identityNumber.value = '';
     userName.value = '';
@@ -294,5 +300,7 @@ deleteUserBtn.addEventListener('click', () => {
             break;
         }
     }
+    idDelete.value = '';
+    nameDelete.value = '';
     displayUsers();
 })
