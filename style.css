@@ -70,6 +70,7 @@ h1 {
     font-size: 50px;
     padding-left: 20px;
     text-decoration: underline;
+    margin-bottom: -30px;
 }
 
 #library, #users {
@@ -77,8 +78,8 @@ h1 {
     padding: 50px 0px 50px 20px;
 }
 
-#library details, #users details {
-    margin-bottom: 30px;
+#library summary, #users summary {
+    padding-top: 30px;
     cursor: pointer;
 }
 
